@@ -19,18 +19,24 @@ You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. C
 
 ### The tools
 
-Use at least sequelize, express, react, and redux when creating this app. You can incorporate any additional libraries or tools you wish.
+Use at least
+
+  sequelize,
+  express,
+  react, and redux
+
+when creating this app. You can incorporate any additional libraries or tools you wish.
 
 ### DB Design
 
 - Students
-  * have profile info (e.g. name and email)
-  * must be assigned to a campus
+  * have profile info (e.g. name and email) √
+  * must be assigned to a campus (campus is now built... need to add relationship) √
 
 - Campuses
-  * have info such as a name and image
-  * can have many students assigned (may have none)
-  
+  * have info such as a name and image √
+  * can have many students assigned (may have none) √
+
 ### Views and Functionality
 
 - Navigation: as a user I...
@@ -43,10 +49,10 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
   * can navigate to view that student's **Single Campus** from **Single Student**
 
 - Views: as a user I...
-  * see a list of all campuses on the **Campuses** view
-  * see a list of all students on the **Students** view
-  * see details about a campus on the **Single Campus** view, including that campus's students
-  * see details about a student on the **Single Student** view, including that student's campus
+  * see a list of all campuses on the **Campuses** view | express:√ sequelize: √ react:
+  * see a list of all students on the **Students** view | express:√ sequelize: √ react:
+  * see details about a campus on the **Single Campus** view, including that campus's students | express:√ sequelize: √
+  * see details about a student on the **Single Student** view, including that student's campus | express:√ sequelize: √
 
 - Actions: as a user I...
   * can create a campus
@@ -59,28 +65,28 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 ### Routes
 
 ```
-GET 
-- all campuses
-- a campus by id
-- all students
-- a student by id
+GET
+- all campuses - √
+- a campus by id - √
+- all students - √
+- a student by id - √
 ```
 
 ```
 POST
-- new campus
-- new student
+- new campus - √
+- new student - √
 ```
 
 ```
 PUT
-- updated student info for one student
-- updated campus info for one campus
+- updated student info for one student - √
+- updated campus info for one campus - √
 ```
 
 ```
 DELETE
-- a campus
+- a campus - drafted
 - a student
 ```
 
@@ -91,4 +97,3 @@ DELETE
 - Routes (25%)
 - Frontend logic and functionality (25%)
 - Design + Bonus features (up to 10 Extra Credit points)
-
