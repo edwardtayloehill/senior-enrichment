@@ -49,15 +49,15 @@ when creating this app. You can incorporate any additional libraries or tools yo
   * can navigate to view that student's **Single Campus** from **Single Student**
 
 - Views: as a user I...
-  * see a list of all campuses on the **Campuses** view | express:√ sequelize: √ react:
-  * see a list of all students on the **Students** view | express:√ sequelize: √ react:
-  * see details about a campus on the **Single Campus** view, including that campus's students | express:√ sequelize: √
-  * see details about a student on the **Single Student** view, including that student's campus | express:√ sequelize: √
+  * see a list of all campuses on the **Campuses** view | express:√ sequelize: √ react: √
+  * see a list of all students on the **Students** view | express:√ sequelize: √ react: √
+  * see details about a campus on the **Single Campus** view, including that campus's students | express:√ sequelize: √ react:
+  * see details about a student on the **Single Student** view, including that student's campus | express:√ sequelize: √ react:
 
 - Actions: as a user I...
-  * can create a campus
+  * can create a campus √
   * can edit a campus's info, including adding/removing a student to/from that campus
-  * can delete a campus
+  * can delete a campus √ but the rendering is having issues - can't figure it out
   * can create a student
   * can edit a student's info, including the campus that student is assigned to
   * can delete a student
@@ -86,8 +86,13 @@ PUT
 
 ```
 DELETE
-- a campus - drafted
-- a student
+- a campus - √
+- a student - √
+```
+
+### Notes
+```
+
 ```
 
 ## Evaluation

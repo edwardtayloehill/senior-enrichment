@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
 // get | get a campus by id
 router.get('/:campusId', (req, res, next) => {
   Campus.findById(req.params.campusId)
-  .then(returnedCampus => res.send(returnedCampus))
+  .then(returnedCampus => res.status(200).send(returnedCampus))
   .catch(next)
 })
 
@@ -25,8 +25,8 @@ router.post('/', (req, res, next) => {
   Campus.create(req.body)
   .then( (newCampus) => {
     res.status(201).send(newCampus)
-  .catch(next)
   })
+  .catch(next)
 })
 
 //put | update campus info for one campus
@@ -38,11 +38,22 @@ router.put('/:campusId', (req, res, next) => {
   })
   .then(targetCampus => {
     targetCampus.update(req.body);
-    res.send(201);
+    res.send(202);
   })
+  .catch(next)
 })
 
 //delete | delete a campus by id
-router.delete('/:campusId', (req, res, next) => {})
+router.delete('/:campusId', (req, res, next) => {
+  Campus.destroy({
+    where: {
+      id: req.params.campusId
+    }
+  })
+  .then( () => {
+    res.status(204).end()
+  })
+  .catch(next)
+})
 
 module.exports = router;

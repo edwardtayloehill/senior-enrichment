@@ -7,7 +7,17 @@ const router = express.Router();
 
 // get | get all students
 router.get('/', (req, res, next) => {
-  Student.findAll()
+    Student.findAll()
+    .then(allStudents => res.send(allStudents))
+    .catch(next)
+})
+
+router.get('/campus/:campusId', (req, res, next) => {
+  Student.findAll({
+    where: {
+      campusId: req.params.campusId
+    }
+  })
   .then(allStudents => res.send(allStudents))
   .catch(next)
 })
@@ -15,7 +25,7 @@ router.get('/', (req, res, next) => {
 // get | get a student by id
 router.get('/:studentId', (req, res, next) => {
   Student.findById(req.params.studentId)
-  .then(returnedStudent => res.send(returnedStudent))
+  .then(returnedStudent => res.status(200).send(returnedStudent))
   .catch(next)
 })
 
@@ -25,6 +35,7 @@ router.post('/', (req, res, next) => {
   .then( (newStudent) => {
     res.status(201).send(newStudent)
   })
+  .catch(next)
 })
 
 //put | update info for one student
@@ -36,18 +47,23 @@ router.put('/:studentId', (req, res, next) => {
   })
   .then( targetStudent => {
     targetStudent.update(req.body)
-    res.send(201);
+    res.send(202);
   })
+  .catch(next)
 });
 
-//delete | delete a student by id
-router.delete('/:studentId', (req, res, next) => {})
+//delete | delete a campus by id
+router.delete('/:studentId', (req, res, next) => {
+  Student.destroy({
+    where: {
+      id: req.params.studentId
+    }
+  })
+  .then( () => {
+    res.status(204).end()
+  })
+  .catch(next)
+})
 
-
-// router.get('/:studentId', (req, res, next) => {
-//   Student.findById(req.params.studentId)
-//   .then(student => res.send([student])
-//   .catch(next)
-// )});
 
 module.exports = router;

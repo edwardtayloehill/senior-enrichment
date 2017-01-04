@@ -25,6 +25,10 @@ module.exports = app
   // .use('/api/student', require('./routes/student-router')) //serve my routes
   //.use('/api/campus', require('./routes/campus-router')) //serve my routes
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'Index.html'))) // Send index.html for any other requests.
+  //for enabling browserHistory?
+  // .use(function(req,res){
+  //   res.sendFile(__dirname + '/index.html')
+  // });
 
   // notice the use of `_` as the first parameter above. This is a pattern for parameters that must exist, but you don't use or reference (or need) in the function body that follows.
 

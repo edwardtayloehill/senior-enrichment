@@ -16,18 +16,3 @@ module.exports = db.define('student', {
       }
     }
   })
-  //, {
-  // classMethods: {
-  //   //get all the students for a given school
-  //   getAllWhereCampus(campusId){
-  //     return Message.findAll({
-  //       include: [{
-  //         model: Campus,
-  //         //as: 'from',
-  //         where: { campusId: campusId }
-  //       }, {
-  //         model: Student,
-  //         as: 'to'
-  //       }]
-  //     })
-  //    })
